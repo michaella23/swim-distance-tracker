@@ -10,3 +10,15 @@ html, body {
 img {
     max-width: 100%;
 }
+
+body {
+    margin: 0.5em
+}
+
+label, input {
+    margin: 0.5em 0;
+}
+
+input {
+    display: block;
+}
