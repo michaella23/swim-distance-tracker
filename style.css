@@ -14,14 +14,28 @@ img {
 body {
     margin: 0.5em;
     font-family: 'Quicksand', sans-serif;
+    background-color: rgb(24, 125, 248);
+    color: white;
 }
 
-form {
-    margin: 0 auto;
+main,
+.stats-el {
+    border-radius: 5px;
+}
+
+main {
+    background-color: blue;
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0 2em;
 }
 
 form > * {
     font-family: inherit;
+    border-radius: 5px;
+    border: none;
 }
 
 label, input {
@@ -30,4 +44,30 @@ label, input {
 
 input {
     display: block;
+    padding: 0.25rem;
+}
+
+.submit-btn {
+    padding: 0.4em 2em 0.4em 0.2em;
+    margin-top: 1em;
+    text-align: left;
+    color: blue;
+}
+
+.total-el {
+    margin-right: 7em;
+}
+
+.stats-heading,
+.daily-stat {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid blue;
+
+}
+
+.stats-el {
+    background-color: white;
+    color:blue;
 }
