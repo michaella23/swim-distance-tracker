@@ -9,7 +9,7 @@ let yards = 66
 
 const yardsPerMile = 1760
 let totalYards = laps * yards
-let dailyMiles = totalYards / yardsPerMile
+let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
 
 
 let totalMiles = 0
@@ -21,6 +21,6 @@ function calculateDailyMiles(e) {
     e.preventDefault()
     laps = lapEl.value 
     let totalYards = laps * yards
-    let dailyMiles = totalYards / yardsPerMile
+    let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
     totalEl.textContent += dailyMiles
 }

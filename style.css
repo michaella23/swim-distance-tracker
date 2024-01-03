@@ -1,8 +1,8 @@
-* {
+*, *::after, *::before {
     box-sizing: border-box;
 }
 
-html, body {
+html {
     margin: 0;
     padding: 0;
 }
@@ -16,6 +16,9 @@ body {
     font-family: 'Quicksand', sans-serif;
     background-color: rgb(24, 125, 248);
     color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 main,
@@ -23,8 +26,12 @@ main,
     border-radius: 5px;
 }
 
+h1 {
+    margin-top: 0.5rem;
+}
+
 main {
-    background-color: blue;
+    background-color: rgb(3, 3, 190);
     color: yellow;
     display: flex;
     flex-direction: column;
@@ -48,10 +55,11 @@ input {
 }
 
 .submit-btn {
-    padding: 0.4em 2em 0.4em 0.2em;
+    padding: 0.4em 1em 0.4em 0.25em;
     margin-top: 1em;
     text-align: left;
     color: blue;
+    font-weight: 600;
 }
 
 .total-el {
@@ -64,10 +72,13 @@ input {
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid blue;
-
 }
 
 .stats-el {
     background-color: white;
     color:blue;
+    height: 200px;
+    overflow:scroll;
+    /* display: flex;
+    flex-direction: column; */
 }
