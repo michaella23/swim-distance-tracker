@@ -12,7 +12,16 @@ img {
 }
 
 body {
-    margin: 0.5em
+    margin: 0.5em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+form {
+    margin: 0 auto;
+}
+
+form > * {
+    font-family: inherit;
 }
 
 label, input {
