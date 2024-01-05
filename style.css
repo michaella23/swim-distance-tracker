@@ -54,12 +54,25 @@ input {
     padding: 0.25rem;
 }
 
+input:focus,
+input:hover,
+.submit-btn:focus,
+.submit-btn:hover {
+    outline: 3px solid yellow;
+}
+
 .submit-btn {
     padding: 0.4em 1em 0.4em 0.25em;
     margin-top: 1em;
     text-align: left;
     color: blue;
     font-weight: 600;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+    background-color:  rgb(24, 125, 248);
+    color: white;
 }
 
 .total-el {
