@@ -90,7 +90,7 @@ input:hover,
 .stats-el {
     background-color: white;
     color:blue;
-    height: 200px;
+    height: 30vh;
     overflow:scroll;
     /* display: flex;
     flex-direction: column; */
