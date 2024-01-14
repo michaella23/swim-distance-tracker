@@ -36,8 +36,8 @@ function renderData() {
         statsEl.innerHTML += `
             <div class="daily-stat">
                     <p>${entry.date}</p>
-                    <p>${entry.laps}</p>
-                    <p>${entry.miles}</p>
+                    <p>${entry.laps.toFixed(1)}</p>
+                    <p>${entry.miles.toFixed(1)}</p>
             </div>`
         // const dailyEntry = document.createElement("div")
         // dailyEntry.setAttribute("class", "daily-stat")
