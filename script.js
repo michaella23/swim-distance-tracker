@@ -15,7 +15,7 @@ let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
 
 
 let totalMiles = 0
-totalMiles += dailyMiles
+// totalMiles += dailyMiles
 
 // document.body.innerHTML += `<p>${totalMiles}</p>`
 
@@ -24,7 +24,8 @@ function calculateDailyMiles(e) {
     laps = lapEl.value 
     let totalYards = laps * yards
     let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
-    totalEl.textContent += dailyMiles
+    // totalEl.textContent += dailyMiles
+    return dailyMiles
 }
 
 const statsEl = document.querySelector(".stats-el")
@@ -52,9 +53,16 @@ function renderData() {
         // console.log(dailyEntry)
         // dailyEntry.appendChild = lapsEl
         // dailyEntry.appendChild = milesEl
+        totalMiles += entry.miles
     })
     return swimData
 }
 
 renderData()
 
+function renderTotal() {
+    // totalMiles = totalMiles + miles
+    totalEl.textContent += totalMiles
+}
+
+renderTotal()

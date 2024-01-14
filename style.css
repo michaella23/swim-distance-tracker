@@ -74,13 +74,18 @@ input:hover,
     color: rgb(255, 255, 255);
 }
 
+.stats-heading,
 .total-el {
-    margin-right: 7em;
+    margin-right: 2rem;
+    text-align: right;
+    font-weight: 600;
+    letter-spacing: 1px;
+    /* margin-right: 7em; */
 }
 
 .stats-heading,
 .daily-stat {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid blue;

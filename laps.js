@@ -18,5 +18,10 @@ export const lapsData = [
         date: "01/12",
         laps: 26.5,
         miles: 1.0
+    },
+    {
+        date: "01/13",
+        laps: 30.5,
+        miles: 0.9
     }
 ]
