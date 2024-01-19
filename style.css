@@ -14,7 +14,7 @@ img {
 body {
     margin: 0.5em;
     font-family: 'Quicksand', sans-serif;
-    background-color: rgb(24, 125, 248);
+    background-color: rgb(6, 112, 243);
     color: rgb(255, 255, 255);
     height: 100vh;
     display: flex;
@@ -22,7 +22,7 @@ body {
 }
 
 main {
-    border-radius: 15% 5px;
+    border-radius: 5px;
 }
 
 h1 {
@@ -30,8 +30,12 @@ h1 {
 }
 
 main {
-    background-color: rgb(3, 3, 190);
+    background-color: rgb(6, 6, 75);
     color: rgb(249, 221, 7);
+    background-image: url('wavy.jpg');
+    background-size: 100%;
+    background-blend-mode:overlay;
+    /* <a href="https://www.freepik.com/free-vector/irregular-organic-lines-pattern-background_9406223.htm#query=background%20pattern&position=49&from_view=keyword&track=ais&uuid=7a1a5ca2-f6a8-48da-a4ff-9d0720b4f519">Image by starline</a> on Freepik */
     display: flex;
     flex-direction: column;
     align-items: center;
