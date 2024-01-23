@@ -62,7 +62,7 @@ renderData()
 
 function renderTotal() {
     // totalMiles = totalMiles + miles
-    totalEl.textContent += totalMiles
+    totalEl.textContent += totalMiles.toFixed(1)
 }
 
 renderTotal()
