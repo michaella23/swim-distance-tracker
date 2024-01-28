@@ -1,17 +1,20 @@
 import { lapsData } from "./laps.js"
 
+const dateEl = document.getElementById("date-el")
+const poolNameEl = document.getElementById("pool-name")
 const lapEl = document.getElementById("lap-num")
 const formEl = document.getElementById("form-el")
 const totalEl = document.getElementById("total-el")
 
 formEl.addEventListener("submit", calculateDailyMiles)
 
+let date
 let laps 
 let yards = 66
 
 const yardsPerMile = 1760
 let totalYards = laps * yards
-let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
+// let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
 
 
 let totalMiles = 0
@@ -21,10 +24,21 @@ let totalMiles = 0
 
 function calculateDailyMiles(e) {
     e.preventDefault()
+    date = dateEl.value.split('').slice(5).join('')
     laps = lapEl.value 
     let totalYards = laps * yards
     let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
     // totalEl.textContent += dailyMiles
+    lapsData.push(
+        {
+            date: date,
+            laps: laps,
+            miles: dailyMiles,
+            pool: poolNameEl.value
+        }
+    )
+    console.log(lapsData)
+    renderData()
     return dailyMiles
 }
 
@@ -33,11 +47,14 @@ console.log(statsEl)
 
 function renderData() {
     const swimData = lapsData.map((entry) => {
+        const date = entry.date
+        const laps = Number(entry.laps).toFixed(1)
+        const miles = Number(entry.miles).toFixed(1)
         statsEl.innerHTML += `
             <div class="daily-stat">
-                    <p>${entry.date}</p>
-                    <p>${entry.laps.toFixed(1)}</p>
-                    <p>${entry.miles.toFixed(1)}</p>
+                    <p>${date}</p>
+                    <p>${laps}</p>
+                    <p>${miles}</p>
             </div>`
         // const dailyEntry = document.createElement("div")
         // dailyEntry.setAttribute("class", "daily-stat")
@@ -66,3 +83,17 @@ function renderTotal() {
 }
 
 renderTotal()
+
+
+/* 
+on form submit
+push an object to lapsData
+{
+    date: dateEl.value,
+    laps: lapEl.value,
+    miles: calculateDailyMiles(),
+    pool: poolNameEl.value
+}
+then renderData()
+ids: date, pool-name, lap-num
+*/
