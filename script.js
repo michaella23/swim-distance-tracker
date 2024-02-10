@@ -16,7 +16,6 @@ const yardsPerMile = 1760
 let totalYards = laps * yards
 // let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
 
-
 let totalMiles = 0
 // totalMiles += dailyMiles
 
