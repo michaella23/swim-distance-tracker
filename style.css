@@ -54,28 +54,28 @@ label, input {
 
 input {
     display: block;
-    padding: 0.25rem;
+    padding: 0.5rem;
 }
 
 input:focus,
-input:hover,
-.submit-btn:focus,
-.submit-btn:hover {
+input:hover {
     outline: 3px solid rgb(249, 221, 7);
 }
 
 .submit-btn {
-    padding: 0.4em 1em 0.4em 0.25em;
+    padding: 0.8em 1em 0.8em 0.4em;
     margin-top: 1em;
     text-align: left;
-    color: blue;
-    font-weight: 600;
+    background-color: rgb(245, 225, 225);
+    color: rgb(32, 32, 128);
+    font-weight: 800;
 }
 
 .submit-btn:hover,
 .submit-btn:focus {
-    background-color:  rgb(24, 125, 248);
-    color: rgb(255, 255, 255);
+    color: rgb(245, 225, 225);
+    background-color: rgb(32, 32, 128);
+    outline: 3px solid rgb(245, 225, 225);
 }
 
 .stats-heading,
@@ -96,7 +96,7 @@ input:hover,
 }
 
 .stats-el {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(245, 225, 225);
     color:blue;
     height: 30vh;
     overflow: scroll;

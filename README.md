@@ -12,3 +12,8 @@ Advanced button, opens modal to add extra details
 - total laps
 - total miles
 - total yards?
+
+
+Settin up Firebase
+- [Getting started with Firebase](https://www.youtube.com/watch?v=9zdvmgGsww0&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb)
+- [Module bundling](https://firebase.google.com/docs/web/module-bundling)

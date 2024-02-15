@@ -1,3 +1,5 @@
+
+
 import { lapsData } from "./laps.js"
 
 const dateEl = document.getElementById("date-el")
