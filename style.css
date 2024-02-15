@@ -59,7 +59,9 @@ input {
 
 input:focus,
 input:hover {
-    outline: 3px solid rgb(249, 221, 7);
+    outline: 2px solid rgb(245, 225, 225);
+    box-shadow: inset 2px 2px 2px rgb(173, 173, 248);
+    /* rgb(249, 221, 7); */
 }
 
 .submit-btn {
@@ -73,8 +75,8 @@ input:hover {
 
 .submit-btn:hover,
 .submit-btn:focus {
-    color: rgb(245, 225, 225);
     background-color: rgb(32, 32, 128);
+    color: rgb(249, 221, 7);
     outline: 3px solid rgb(245, 225, 225);
 }
 
