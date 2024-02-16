@@ -1,0 +1,14 @@
+{
+  "name": "swim-distance-tracker",
+  "version": "1.0.0",
+  "description": "In 2024, I plan to swim at least 100 miles. I wanted to design an app for my personal use, to track how many laps I swim and perform conversions with feet, yards, and miles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.8.0"
+  }
+}
