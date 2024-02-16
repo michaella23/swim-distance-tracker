@@ -1,17 +1,19 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDoc } from 'firebase/firestore/lite';
 
-const firebaseApp = initializeApp({ /* config */ });
-const db = getFirestore(firebaseApp);
-
-async function loadCity(name) {
-  const cityDoc = doc(db, `cities/${name}`);
-  const snapshot = await getDoc(cityDoc);
-  return {
-    id: snapshot.id,
-    ...snapshot.data(),
-  };
+const appSettings = {
+    apiKey: "AIzaSyCQSiN_BXt3z5RV6mMYsdHmF3WcddpxxZ8",
+    authDomain: "swim-tracker-2024-17e0f.firebaseapp.com",
+    projectId: "swim-tracker-2024-17e0f",
+    storageBucket: "swim-tracker-2024-17e0f.appspot.com",
+    messagingSenderId: "236148809651",
+    appId: "1:236148809651:web:691000bbb4fbf47facb5c6",
+    databaseUrl: "https://swim-tracker-2024-17e0f-default-rtdb.firebaseio.com/"
 }
+
+const firebaseApp = initializeApp(appSettings);
+const db = getFirestore(firebaseApp); 
+
 
 import { lapsData } from "./laps.js"
 
