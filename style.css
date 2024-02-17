@@ -16,7 +16,8 @@ body {
     font-family: 'Quicksand', sans-serif;
     background-color: rgb(6, 112, 243);
     color: rgb(255, 255, 255);
-    height: 100vh;
+    height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -26,7 +27,7 @@ main {
 }
 
 h1 {
-    margin-top: 0.5rem;
+    margin: 0.5rem 0;
 }
 
 main {
@@ -34,11 +35,11 @@ main {
     color: rgb(249, 221, 7);
     background-image: url('wavy.jpg');
     background-size: 100%;
-    background-blend-mode:overlay;
-    /* <a href="https://www.freepik.com/free-vector/irregular-organic-lines-pattern-background_9406223.htm#query=background%20pattern&position=49&from_view=keyword&track=ais&uuid=7a1a5ca2-f6a8-48da-a4ff-9d0720b4f519">Image by starline</a> on Freepik */
+    background-blend-mode: overlay;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1em 0 0;
     padding: 1em 0 2em;
 }
 
@@ -55,11 +56,13 @@ label, input {
 input {
     display: block;
     padding: 0.5rem;
+    background-color: rgb(250, 245, 207);
+    color:rgb(6, 6, 75)
 }
 
 input:focus,
 input:hover {
-    outline: 2px solid rgb(245, 225, 225);
+    outline: 2px solid rgb(249, 221, 7);
     box-shadow: inset 2px 2px 2px rgb(173, 173, 248);
     /* rgb(249, 221, 7); */
 }
@@ -68,7 +71,7 @@ input:hover {
     padding: 0.8em 1em 0.8em 0.4em;
     margin-top: 1em;
     text-align: left;
-    background-color: rgb(245, 225, 225);
+    background-color: rgb(249, 221, 7);
     color: rgb(32, 32, 128);
     font-weight: 800;
 }
@@ -76,8 +79,8 @@ input:hover {
 .submit-btn:hover,
 .submit-btn:focus {
     background-color: rgb(32, 32, 128);
-    color: rgb(249, 221, 7);
-    outline: 3px solid rgb(245, 225, 225);
+    color: rgb(249, 242, 194);
+    outline: 3px solid rgb(249, 221, 7);
 }
 
 .stats-heading,
@@ -98,7 +101,7 @@ input:hover {
 }
 
 .stats-el {
-    background-color: rgb(245, 225, 225);
+    background-color: rgb(250, 245, 207);
     color:blue;
     height: 30vh;
     overflow: scroll;

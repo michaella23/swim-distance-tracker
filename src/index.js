@@ -1,7 +1,7 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc } from 'firebase/firestore/lite';
+import { initializeApp } from 'firebase/app'
+import { getDatabase, ref, push, set, remove } from 'firebase/database'
 
-const appSettings = {
+const firebaseConfig = {
     apiKey: "AIzaSyCQSiN_BXt3z5RV6mMYsdHmF3WcddpxxZ8",
     authDomain: "swim-tracker-2024-17e0f.firebaseapp.com",
     projectId: "swim-tracker-2024-17e0f",
@@ -11,9 +11,9 @@ const appSettings = {
     databaseUrl: "https://swim-tracker-2024-17e0f-default-rtdb.firebaseio.com/"
 }
 
-const firebaseApp = initializeApp(appSettings);
-const db = getFirestore(firebaseApp); 
-
+const app = initializeApp(firebaseConfig)
+const db = getDatabase(app)
+const reference = ref(db, "laps")
 
 import { lapsData } from "./laps.js"
 
@@ -40,26 +40,27 @@ let totalMiles = 0
 
 function calculateDailyMiles(e) {
     e.preventDefault()
+    console.log(typeof(dateEl.value))
     date = dateEl.value.split('').slice(5).join('')
     laps = lapEl.value 
     let totalYards = laps * yards
     let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
     // totalEl.textContent += dailyMiles
-    lapsData.push(
-        {
+
+        
+    let thisEntry = {
             date: date,
             laps: laps,
             miles: dailyMiles,
             pool: poolNameEl.value
         }
-    )
-    console.log(lapsData)
-    renderData()
+    set(reference, thisEntry)
+    // renderData()
     return dailyMiles
 }
 
 const statsEl = document.querySelector(".stats-el")
-console.log(statsEl)
+// console.log(statsEl)
 
 function renderData() {
     const swimData = lapsData.map((entry) => {
@@ -72,20 +73,6 @@ function renderData() {
                     <p>${laps}</p>
                     <p>${miles}</p>
             </div>`
-        // const dailyEntry = document.createElement("div")
-        // dailyEntry.setAttribute("class", "daily-stat")
-        // const dateEl = document.createElement("p")
-        // dateEl.textContent = entry.date
-        // // console.log(date.textContent)
-        // const lapsEl = document.createElement("p")
-        // lapsEl.textContent = entry.laps
-        // const milesEl = document.createElement("p")
-        // milesEl.textContent = entry.miles
-        // console.log(milesEl)
-        // dailyEntry.innerHTML += dateEl
-        // console.log(dailyEntry)
-        // dailyEntry.appendChild = lapsEl
-        // dailyEntry.appendChild = milesEl
         totalMiles += entry.miles
     })
     return swimData
