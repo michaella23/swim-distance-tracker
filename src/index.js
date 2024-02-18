@@ -40,9 +40,8 @@ let totalMiles = 0
 
 function calculateDailyMiles(e) {
     e.preventDefault()
-    console.log(typeof(dateEl.value))
     date = dateEl.value.split('').slice(5).join('')
-    laps = lapEl.value 
+    laps = Number(lapEl.value)
     let totalYards = laps * yards
     let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
     // totalEl.textContent += dailyMiles
@@ -54,7 +53,7 @@ function calculateDailyMiles(e) {
             miles: dailyMiles,
             pool: poolNameEl.value
         }
-    set(reference, thisEntry)
+    push(reference, thisEntry)
     // renderData()
     return dailyMiles
 }
@@ -90,7 +89,7 @@ renderTotal()
 
 /* 
 on form submit
-push an object to lapsData
+push an object to ~~lapsData~~ database
 {
     date: dateEl.value,
     laps: lapEl.value,
