@@ -102,9 +102,15 @@ export const lapsData = [
         pool: "Bartholomew"
     },
     {
-        date: "02/25",
+        date: "02/15",
         laps: 13,
         miles: 0.5,
         pool: "Stacy"
     },
+    {
+        date: "02/17",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    }
 ]

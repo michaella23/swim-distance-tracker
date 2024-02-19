@@ -8,7 +8,8 @@ Advanced button, opens modal to add extra details
 - time and temperature (weather API?)
 - click on date to fetch those details
 - select menu for different pools?
-- JSON file with pools and yardage
+<!-- - JSON file with pools and yardage -->
+- Firebase Realtime Database
 - total laps
 - total miles
 - total yards?
