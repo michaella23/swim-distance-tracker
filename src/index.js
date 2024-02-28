@@ -27,8 +27,7 @@ formEl.addEventListener("submit", calculateDailyMiles)
 
 let date
 let laps 
-let yards = 66
-
+let yards
 const yardsPerMile = 1760
 let totalYards = laps * yards
 // let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
@@ -36,17 +35,26 @@ let totalYards = laps * yards
 let totalMiles = 0
 // totalMiles += dailyMiles
 
-// document.body.innerHTML += `<p>${totalMiles}</p>`
+function getTotalYards(pool) {
+    switch (pool) {
+        case "stacy":
+            yards = 66
+            break
+        case "eddy":
+            yards = 66
+            break
+        default:
+            yards = 50
+    }
+}
 
 function calculateDailyMiles(e) {
     e.preventDefault()
     date = dateEl.value.split('').slice(5).join('')
     laps = Number(lapEl.value)
+    getTotalYards(poolNameEl.value)
     let totalYards = laps * yards
-    let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
-    // totalEl.textContent += dailyMiles
-
-        
+    let dailyMiles = (totalYards / yardsPerMile).toFixed(1)        
     let thisEntry = {
             date: date,
             laps: laps,
@@ -60,6 +68,13 @@ function calculateDailyMiles(e) {
 
 const statsEl = document.querySelector(".stats-el")
 // console.log(statsEl)
+
+// onValue takes a reference, where to fetch data from (reference), 
+// then it takes a function which takes snapshot as an argument
+// this will return an object. Do I want an object?
+// If I want an array, can use Object.keys(snapshot.val()) - get the ids, Object.values(snapshot.val()) - get the values, Object.entries(snapshot.val()) - get both
+// onValue runs every time there is an update to the database
+// if using for innerHTML, might need to clear before rendering updated data
 
 function renderData() {
     const swimData = lapsData.map((entry) => {
