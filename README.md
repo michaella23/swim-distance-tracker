@@ -5,14 +5,14 @@ In 2024, I plan to swim at least 100 miles. I wanted to design an app for my per
 To do:
 
 Advanced button, opens modal to add extra details
--[] time and temperature (weather API?)
--[] click on date to fetch those details
--[x] select menu for different pools?
+[] time and temperature (weather API?)
+[] click on date to fetch those details
+[x] select menu for different pools?
 <!-- - JSON file with pools and yardage -->
--[x] Firebase Realtime Database
--[x] total laps
--[x] total miles
--[] total yards?
+[x] Firebase Realtime Database
+[x] total laps
+[x] total miles
+[] total yards?
 
 
 Settin up Firebase
@@ -30,10 +30,10 @@ Settin up Firebase
 
 had some issues sorting by date, [this article](https://byby.dev/js-sort-by-date-value) was helpful. long story short, default format from the input was a string. needed to convert to Date to convert.
 
--[] create functionality to edit and/or delete an entry
--[] create login/auth with Google
--[] animation for when new entry is added
--[] get weekly(?)/monthly sums
--[] photo upload? photo gallery
--[] get weather ??
--[] pool info
+[] create functionality to edit and/or delete an entry
+[] create login/auth with Google
+[] animation for when new entry is added
+[] get weekly(?)/monthly sums
+[] photo upload? photo gallery
+[] get weather ??
+[] pool info
