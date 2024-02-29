@@ -18,3 +18,12 @@ Advanced button, opens modal to add extra details
 Settin up Firebase
 - [Getting started with Firebase](https://www.youtube.com/watch?v=9zdvmgGsww0&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb)
 - [Module bundling](https://firebase.google.com/docs/web/module-bundling)
+
+
+** Notes about `onValue`
+// onValue takes a reference, where to fetch data from (reference), 
+// then it takes a function which takes snapshot as an argument
+// this will return an object. Do I want an object?
+// If I want an array, can use Object.keys(snapshot.val()) - get the ids, Object.values(snapshot.val()) - get the values, Object.entries(snapshot.val()) - get both
+// onValue runs every time there is an update to the database
+// if using for innerHTML, might need to clear before rendering updated data
