@@ -45,8 +45,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1em 0 0;
-    padding: 1em 0 2em;
+    /* margin: 1em 0 0; */
+    padding: 1.5rem 0 1rem;
 }
 
 form > * {
@@ -93,11 +93,20 @@ select:hover {
 
 .stats-heading,
 .total-el {
+    /* margin-top: 0.5rem; */
     margin-right: 2rem;
     text-align: right;
     font-weight: 600;
     letter-spacing: 1px;
-    /* margin-right: 7em; */
+}
+
+
+.stats-heading p {
+    margin-bottom: 0.5rem;
+}
+
+.total-el {
+    margin-top: 0.5rem;
 }
 
 .stats-heading,
@@ -114,6 +123,4 @@ select:hover {
     height: 30vh;
     overflow: scroll;
     border-radius: 5px;
-    /* display: flex;
-    flex-direction: column; */
 }
