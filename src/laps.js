@@ -112,5 +112,17 @@ export const lapsData = [
         laps: 26.5,
         miles: 1.0,
         pool: "Stacy"
+    },
+    {
+        date: "02/23",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    },
+    {
+        date: "02/26",
+        laps: 30.5,
+        miles: 1.0,
+        pool: "Bartholomew"
     }
 ]
