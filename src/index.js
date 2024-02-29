@@ -61,14 +61,13 @@ function calculateDailyMiles(e) {
             pool: poolNameEl.value
         }
     push(reference, thisEntry)
-    return dailyMiles
+    resetForm()
 }
 
 const statsEl = document.querySelector(".stats-el")
 
 onValue(reference, function(snapshot) {
     const entries = Object.values(snapshot.val())
-    // let totalMiles = 0
     const sorted = entries.sort(function(a, b) {
         let dateA = new Date(a.date)
         let dateB = new Date(b.date)
@@ -76,9 +75,8 @@ onValue(reference, function(snapshot) {
     })
     console.log(sorted)
     statsEl.innerHTML = ""
-    // entries.sort()
     for (let entry of sorted) {
-        const date = entry.date
+        const date = entry.date.split('').slice(5).join('')
         const laps = Number(entry.laps).toFixed(1)
         const miles = Number(entry.miles).toFixed(1) 
         totalMiles += Number(miles)
@@ -93,3 +91,9 @@ onValue(reference, function(snapshot) {
 
 set(totalRef, totalMiles)
     .then(() => totalEl.textContent = totalMiles)
+
+function resetForm() {
+    dateEl.value = ""
+    poolNameEl.value = ""
+    lapEl.value = ""
+}

@@ -27,3 +27,5 @@ Settin up Firebase
 // If I want an array, can use Object.keys(snapshot.val()) - get the ids, Object.values(snapshot.val()) - get the values, Object.entries(snapshot.val()) - get both
 // onValue runs every time there is an update to the database
 // if using for innerHTML, might need to clear before rendering updated data
+
+had some issues sorting by date, [this article](https://byby.dev/js-sort-by-date-value) was helpful. long story short, default format from the input was a string. needed to convert to Date to convert.
