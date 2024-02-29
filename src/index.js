@@ -90,7 +90,7 @@ onValue(reference, function(snapshot) {
 })
 
 set(totalRef, totalMiles)
-    .then(() => totalEl.textContent = totalMiles)
+    .then(() => totalEl.textContent = totalMiles.toFixed(1))
 
 function resetForm() {
     dateEl.value = ""
