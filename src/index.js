@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, push, set, remove } from 'firebase/database'
+import { getDatabase, ref, push, onValue, set } from 'firebase/database'
 
 const firebaseConfig = {
     apiKey: "AIzaSyCQSiN_BXt3z5RV6mMYsdHmF3WcddpxxZ8",
@@ -14,8 +14,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getDatabase(app)
 const reference = ref(db, "laps")
+const totalRef = ref(db, "total")
 
-import { lapsData } from "./laps.js"
+// import { lapsData } from "./laps.js"
 
 const dateEl = document.getElementById("date-el")
 const poolNameEl = document.getElementById("pool-name")
@@ -29,11 +30,8 @@ let date
 let laps 
 let yards
 const yardsPerMile = 1760
-let totalYards = laps * yards
-// let dailyMiles = (totalYards / yardsPerMile).toFixed(1)
 
 let totalMiles = 0
-// totalMiles += dailyMiles
 
 function getTotalYards(pool) {
     switch (pool) {
@@ -43,6 +41,9 @@ function getTotalYards(pool) {
         case "eddy":
             yards = 66
             break
+        case "bart":
+            yards = 50
+            break
         default:
             yards = 50
     }
@@ -50,7 +51,8 @@ function getTotalYards(pool) {
 
 function calculateDailyMiles(e) {
     e.preventDefault()
-    date = dateEl.value.split('').slice(5).join('')
+    date = dateEl.value
+    // .split('').slice(5).join('')
     laps = Number(lapEl.value)
     getTotalYards(poolNameEl.value)
     let totalYards = laps * yards
@@ -62,7 +64,6 @@ function calculateDailyMiles(e) {
             pool: poolNameEl.value
         }
     push(reference, thisEntry)
-    // renderData()
     return dailyMiles
 }
 
@@ -76,30 +77,63 @@ const statsEl = document.querySelector(".stats-el")
 // onValue runs every time there is an update to the database
 // if using for innerHTML, might need to clear before rendering updated data
 
-function renderData() {
-    const swimData = lapsData.map((entry) => {
+onValue(reference, function(snapshot) {
+    const entries = Object.values(snapshot.val())
+    // let totalMiles = 0
+    const sorted = entries.sort(function(a, b) {
+        let dateA = new Date(a.date)
+        let dateB = new Date(b.date)
+        return dateB - dateA
+    })
+    console.log(sorted)
+    statsEl.innerHTML = ""
+    // entries.sort()
+    for (let entry of sorted) {
         const date = entry.date
         const laps = Number(entry.laps).toFixed(1)
-        const miles = Number(entry.miles).toFixed(1)
+        const miles = Number(entry.miles).toFixed(1) 
+        totalMiles += Number(miles)
         statsEl.innerHTML += `
-            <div class="daily-stat">
-                    <p>${date}</p>
-                    <p>${laps}</p>
-                    <p>${miles}</p>
-            </div>`
-        totalMiles += entry.miles
-    })
-    return swimData
-}
+        <div class="daily-stat">
+                <p>${date}</p>
+                <p>${laps}</p>
+                <p>${miles}</p>
+        </div>`
+        // renderTotal()
+        // return totalMiles
+    }
+    // console.log(totalMiles)
+    // set(totalRef, totalMiles)
+    //     .then(() => totalEl.textContent = totalMiles)
+})
 
-renderData()
+set(totalRef, totalMiles)
+    .then(() => totalEl.textContent = totalMiles)
 
-function renderTotal() {
-    // totalMiles = totalMiles + miles
-    totalEl.textContent += totalMiles.toFixed(1)
-}
+// function renderData() {
+//     const swimData = lapsData.map((entry) => {
+//         const date = entry.date
+//         const laps = Number(entry.laps).toFixed(1)
+//         const miles = Number(entry.miles).toFixed(1)
+//         statsEl.innerHTML += `
+//             <div class="daily-stat">
+//                     <p>${date}</p>
+//                     <p>${laps}</p>
+//                     <p>${miles}</p>
+//             </div>`
+//         totalMiles += entry.miles
+//     })
+//     return swimData
+// }
 
-renderTotal()
+// renderData()
+
+// function renderTotal() {
+//     totalMiles += dailyMiles
+//     totalEl.textContent = totalMiles
+// }
+
+// renderTotal()
 
 
 /* 
