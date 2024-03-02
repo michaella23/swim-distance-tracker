@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, push, onValue, set } from 'firebase/database'
+import { getDatabase, ref, push, onValue, set, remove } from 'firebase/database'
 
 const firebaseConfig = {
     apiKey: "AIzaSyCQSiN_BXt3z5RV6mMYsdHmF3WcddpxxZ8",
@@ -66,34 +66,59 @@ function calculateDailyMiles(e) {
 
 const statsEl = document.querySelector(".stats-el")
 
+
 onValue(reference, function(snapshot) {
-    const entries = Object.values(snapshot.val())
-    const sorted = entries.sort(function(a, b) {
-        let dateA = new Date(a.date)
-        let dateB = new Date(b.date)
+    // const entries = Object.values(snapshot.val())
+    // const entryIDs = Object.keys(snapshot.val())
+    // two separate arrays here - one with values, which I want to sort, 
+    // one with the IDs, which I need to grab to be able to remove
+    // console.log(entriesWithIDs)
+    const entriesWithIDs = Object.entries(snapshot.val())
+    const sorted = entriesWithIDs.sort(function(a, b) {
+        let dateA = new Date(a[1].date)
+        let dateB = new Date(b[1].date)
         return dateB - dateA
     })
-    console.log(sorted)
     statsEl.innerHTML = ""
     for (let entry of sorted) {
-        const date = entry.date.split('').slice(5).join('')
-        const laps = Number(entry.laps).toFixed(1)
-        const miles = Number(entry.miles).toFixed(1) 
+        const date = entry[1].date.split('').slice(5).join('')
+        const laps = Number(entry[1].laps).toFixed(1)
+        const miles = Number(entry[1].miles).toFixed(1) 
         totalMiles += Number(miles)
         statsEl.innerHTML += `
-        <div class="daily-stat">
-                <p>${date}</p>
-                <p>${laps}</p>
-                <p>${miles}</p>
+        <div class="daily-stat" id="${entry[0]}">
+            <p>${date}</p>
+            <p>${laps}</p>
+            <p>${miles}</p>
         </div>`
     }
+    const stats = document.getElementsByClassName("daily-stat")
+    for ( let stat of stats) {
+        stat.addEventListener("click", () => {
+            const statID = stat.id
+            console.log(ref(db, `laps/${statID}`))
+            // remove(ref(db, `laps/${stat.id}`)) <-- this was BAD idea
+        })
+    }
+
 })
 
 set(totalRef, totalMiles)
-    .then(() => totalEl.textContent = totalMiles.toFixed(1))
+.then(() => totalEl.textContent = totalMiles.toFixed(1))
 
 function resetForm() {
     dateEl.value = ""
     poolNameEl.value = ""
     lapEl.value = ""
 }
+
+// function removeStat() {
+//     console.log("clicked")
+// }
+
+
+    //     console.log("clicked")
+    //     const statID = stat[0]
+    //     console.log(statID)
+    // }))
+    
