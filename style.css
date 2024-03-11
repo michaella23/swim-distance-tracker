@@ -1,4 +1,5 @@
 :root {
+    font-size: 20px;
     --dark-yellow: rgb(246, 232, 131);
     --light-yellow: rgb(245, 243, 229);
 
@@ -22,8 +23,8 @@ body {
     font-family: 'Quicksand', sans-serif;
     background-color: rgb(6, 112, 243);
     color: rgb(255, 255, 255);
-    height: 100%;
-    overflow: hidden;
+    /* height: 100%; */
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
 }
@@ -61,9 +62,10 @@ label, select, input {
 
 input, select {
     display: block;
-    padding: 0.5rem;
+    padding: 0.25rem;
     background-color: var(--light-yellow);
-    color:rgb(6, 6, 75)
+    color:rgb(6, 6, 75);
+    font-size: inherit;
 }
 
 input:focus,
@@ -94,34 +96,63 @@ select:hover {
 .stats-heading,
 .total-el {
     /* margin-top: 0.5rem; */
-    margin-right: 2rem;
-    text-align: right;
+    /* margin-right: 2rem;
+    text-align: right; */
     font-weight: 600;
     letter-spacing: 1px;
 }
 
 
-.stats-heading p {
+.stats-heading {
     margin-bottom: 0.5rem;
 }
 
 .total-el {
     margin-top: 0.5rem;
+    /* text-align: right; */
+    horizontal-align: right;
+
 }
 
-.stats-heading,
+/* .stats-heading,
 .daily-stat {
     width: 100%;
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid blue;
+} */
+
+tbody {
+    height: 30vh;
+    overflow: scroll;
 }
 
+
 .stats-el {
+    /* display: block; */
     background-color: var(--light-yellow);
     color:blue;
     height: 30vh;
-    overflow: scroll;
+    overflow-y: scroll;
     border-radius: 5px;
 }
 
+/* td {
+    border: 1px solid red;
+} */
+
+table {
+    border: 1px solid orangered;
+    /* table-layout: fixed; */
+}
+
+th, td {
+    text-align: center;
+    padding: 0.3em;
+}
+
+
+.total-el {
+    position: absolute;
+    right: 0.25em;
+}

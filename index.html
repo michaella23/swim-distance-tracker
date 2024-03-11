@@ -36,22 +36,27 @@
         </form>
         <p id="temp"></p>
     </main>
-    <section>
-        <header class="stats-heading">
-            <p>Date</p>
-            <p>Laps</p>
-            <p>Miles</p>
-        </header>
-        <div class="stats-el">  
+    <table>
+        <thead class="stats-heading">
+            <th>Date</th>
+            <th>Laps</th>
+            <th>Miles</th>
+        </thead>
+        <tbody class="stats-el">  
             <!-- Rendered in JavaScript
             <div class="daily-stat">
                 <p>01/03</p>
                 <p>26.5</p>
                 <p>1.0</p>
             </div> -->
-        </div>
-        <p class="total-el">Total miles: <span id="total-el"></span></p>
-    </section>
+        </tbody>
+        <tfoot class="total-el">
+            <tr>
+                <td>Total miles: </td>
+                <td id="total-el"></td>
+            </tr>
+        </tfoot>
+    </table>
     <script src="./dist/bundle.js" type="module"></script>
 </body>
 </html>

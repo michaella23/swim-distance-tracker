@@ -86,11 +86,11 @@ onValue(reference, function(snapshot) {
         const miles = Number(entry[1].miles).toFixed(1) 
         totalMiles += Number(miles)
         statsEl.innerHTML += `
-        <div class="daily-stat" id="${entry[0]}">
-            <p>${date}</p>
-            <p>${laps}</p>
-            <p>${miles}</p>
-        </div>`
+        <tr class="daily-stat" id="${entry[0]}">
+            <td>${date}</td>
+            <td>${laps}</td>
+            <td>${miles}</td>
+        </tr>`
     }
     const stats = document.getElementsByClassName("daily-stat")
     for ( let stat of stats) {
