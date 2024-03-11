@@ -137,14 +137,6 @@ tbody {
     border-radius: 5px;
 }
 
-/* td {
-    border: 1px solid red;
-} */
-
-table {
-    border: 1px solid orangered;
-    /* table-layout: fixed; */
-}
 
 th, td {
     text-align: center;
@@ -152,7 +144,6 @@ th, td {
 }
 
 
-.total-el {
-    position: absolute;
-    right: 0.25em;
+.total-el td {
+    text-align: right; 
 }
