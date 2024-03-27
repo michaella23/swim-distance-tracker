@@ -124,5 +124,60 @@ export const lapsData = [
         laps: 30.5,
         miles: 1.0,
         pool: "Bartholomew"
-    }
+    },
+    {
+        date: "02/29",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    },
+    {
+        date: "03/01",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    },
+    {
+        date: "03/02",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    },
+    {
+        date: "03/06",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    },
+    {
+        date: "03/09",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    },
+    {
+        date: "03/10",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    },
+    {
+        date: "03/19",
+        laps: 26.5,
+        miles: 1.0,
+        pool: "Stacy"
+    },
+    {
+        date: "03/23",
+        laps: 34.0,
+        miles: 1.3,
+        pool: "Eddy"
+    },
+    {
+        date: "03/26",
+        laps: 25,
+        miles: 0.9,
+        pool: "Eddy"
+    },
+
 ]
