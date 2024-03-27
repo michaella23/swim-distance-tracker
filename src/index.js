@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, push, onValue, set, remove } from 'firebase/database'
+import { getDatabase, ref, push, onValue, set, get, remove } from 'firebase/database'
 
 const firebaseConfig = {
     apiKey: "AIzaSyCQSiN_BXt3z5RV6mMYsdHmF3WcddpxxZ8",
@@ -21,14 +21,13 @@ const lapEl = document.getElementById("lap-num")
 const formEl = document.getElementById("form-el")
 const totalEl = document.getElementById("total-el")
 
+
 formEl.addEventListener("submit", calculateDailyMiles)
 
 let date
 let laps 
 let yards
 const yardsPerMile = 1760
-
-let totalMiles = 0
 
 function getTotalYards(pool) {
     switch (pool) {
@@ -49,7 +48,6 @@ function getTotalYards(pool) {
 function calculateDailyMiles(e) {
     e.preventDefault()
     date = dateEl.value
-    // .split('').slice(5).join('')
     laps = Number(lapEl.value)
     getTotalYards(poolNameEl.value)
     let totalYards = laps * yards
@@ -68,11 +66,7 @@ const statsEl = document.querySelector(".stats-el")
 
 
 onValue(reference, function(snapshot) {
-    // const entries = Object.values(snapshot.val())
-    // const entryIDs = Object.keys(snapshot.val())
-    // two separate arrays here - one with values, which I want to sort, 
-    // one with the IDs, which I need to grab to be able to remove
-    // console.log(entriesWithIDs)
+    let totalMiles = 0
     const entriesWithIDs = Object.entries(snapshot.val())
     const sorted = entriesWithIDs.sort(function(a, b) {
         let dateA = new Date(a[1].date)
@@ -92,19 +86,10 @@ onValue(reference, function(snapshot) {
             <td>${miles}</td>
         </tr>`
     }
-    const stats = document.getElementsByClassName("daily-stat")
-    for ( let stat of stats) {
-        stat.addEventListener("click", () => {
-            const statID = stat.id
-            console.log(ref(db, `laps/${statID}`))
-            // remove(ref(db, `laps/${stat.id}`)) <-- this was BAD idea
-        })
-    }
-
+    set(totalRef, totalMiles)
+    .then(() => totalEl.textContent = totalMiles.toFixed(1))
 })
 
-set(totalRef, totalMiles)
-.then(() => totalEl.textContent = totalMiles.toFixed(1))
 
 function resetForm() {
     dateEl.value = ""
